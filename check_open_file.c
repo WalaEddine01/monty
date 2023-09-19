@@ -14,6 +14,7 @@ char *check_open_file(char **argv)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		close(fd);
+		free(buffer);
 		exit(EXIT_FAILURE);
 	}
 	fd2 = read(fd, buffer, sizeof(buffer));
@@ -21,6 +22,7 @@ char *check_open_file(char **argv)
 	{
 		fprintf(stderr, "Error: Can't read file %s\n", argv[1]);
 		close(fd2);
+		free(buffer);
 		exit(EXIT_FAILURE);
 	}
 	if (buffer[strlen(buffer) - 1] == '\n')
