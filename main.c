@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * main - main function of the monty interpriter
  * @argc: number of arguments
@@ -7,10 +8,8 @@
  */
 int main(int argc, char **argv)
 {
-	char *buffer;
-
+	stack_t *head;
 	check_nbr_args(argc);
-	buffer = check_open_file(argv);
-	printf("%s \n", buffer);
+	check_open_file(argv);
 	return (0);
 }
