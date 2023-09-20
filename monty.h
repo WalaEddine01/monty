@@ -45,5 +45,9 @@ typedef struct instruction_s
 /** PROTOTYPES */
 void check_nbr_args(int argc);
 char *check_open_file(char **argv);
+stack_t *push(stack_t **head, const int n);
+int pop(stack_t **head);
+void free_stack(stack_t **head);
+size_t pall(const stack_t *h);
 
 #endif /* MONTY_H */

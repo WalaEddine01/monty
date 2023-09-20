@@ -11,6 +11,6 @@ int main(int argc, char **argv)
 
 	check_nbr_args(argc);
 	buffer = check_open_file(argv);
-
+	printf("%s \n", buffer);
 	return (0);
 }
