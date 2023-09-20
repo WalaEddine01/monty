@@ -4,13 +4,13 @@
  * @h: the head of the stuck
  * Return: the number of nodes
  */
-size_t pall(const stack_t *h)
+size_t pall(const line_t *h)
 {
 	size_t i = 0;
 
 	while (h)
 	{
-		printf("%d\n", h->n);
+		printf("%s", h->line);
 		h = h->next;
 		i++;
 	}

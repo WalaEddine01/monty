@@ -11,6 +11,7 @@
 #include <sys/types.h>
 
 
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -41,13 +42,27 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct lines_s - lines
+ * @line: line
+ * @next: pointer to the next node
+ *
+ * Description: lines
+ */
+typedef struct line_s
+{
+	char *line;
+	struct line_s *next;
+} line_t;
 
+line_t *head;
 /** PROTOTYPES */
 void check_nbr_args(int argc);
 void check_open_file(char **argv);
 stack_t *push(stack_t **head, const int n);
 int pop(stack_t **head);
 void free_stack(stack_t **head);
-size_t pall(const stack_t *h);
+size_t pall(const line_t *h);
+void free_stack2(line_t **head);
 
 #endif /* MONTY_H */

@@ -9,6 +9,7 @@ void check_open_file(char **argv)
 	FILE *fd;
 	char *buffer;
 	size_t n = 0;
+	line_t *ptr = NULL, *tmp;
 
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
@@ -19,5 +20,21 @@ void check_open_file(char **argv)
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&buffer, &n, fd) != -1)
-		printf("%s", buffer);
+	{
+		ptr = malloc(sizeof(line_t));
+		ptr->line = malloc(strlen(buffer) + 1);
+		strcpy(ptr->line, buffer);
+		ptr->next = NULL;
+		if (!head)
+			head = ptr;
+		else
+		{
+			tmp = head;
+			while (tmp->next)
+				tmp = tmp->next;
+			tmp->next = ptr;
+		}
+	}
+	fclose(fd);
+	free(buffer);
 }

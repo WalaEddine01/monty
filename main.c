@@ -8,8 +8,9 @@
  */
 int main(int argc, char **argv)
 {
-	stack_t *head;
 	check_nbr_args(argc);
 	check_open_file(argv);
+	pall(head);
+	free_stack2(&head);
 	return (0);
 }

@@ -1,5 +1,5 @@
-1\n
-2
-3
-4
-5
+push 1
+push 2
+push 3
+pall
+wa
