@@ -53,16 +53,22 @@ typedef struct line_s
 {
 	char *line;
 	struct line_s *next;
+	unsigned int line_nbr;
+	char **tokens;
+	unsigned int n_token;
 } line_t;
 
-line_t *head;
+extern line_t *head;
 /** PROTOTYPES */
 void check_nbr_args(int argc);
 void check_open_file(char **argv);
-stack_t *push(stack_t **head, const int n);
-int pop(stack_t **head);
+void push(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **head);
-size_t pall(const line_t *h);
+void pall(stack_t **stack, unsigned int line_number);
 void free_stack2(line_t **head);
+void malloc_f(void);
+int is_space(const char *str);
+int is_nbr(const char *str);
 
 #endif /* MONTY_H */

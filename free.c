@@ -32,19 +32,21 @@ void free_stack(stack_t **head)
 void free_stack2(line_t **head)
 {
 	line_t *ptr;
+	unsigned int i = 0;
 
 	if (*head == NULL)
 		return;
-	else
+	ptr = *head;
+	while (*head && (*head)->next)
 	{
 		ptr = *head;
-		while (*head && (*head)->next)
-		{
-			ptr = *head;
-			*head = (*head)->next;
-			free(ptr->line);
-			free(ptr);
-		}
-		free(*head);
+		*head = (*head)->next;
+		free(ptr->line);
+		for(i = 0; i < ptr->n_token; i++)
+	    		free(ptr->tokens[i]);
+		free(ptr->tokens);
+		free(ptr);
 	}
+	free((*head)->line);
+	free(*head);
 }

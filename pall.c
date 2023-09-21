@@ -1,18 +1,21 @@
 #include "monty.h"
 /**
  * pall - prints all the elements of a stuck
- * @h: the head of the stuck
- * Return: the number of nodes
+ * @line_number: nbr of line
+ * @stack: pointer to the stack
+ * Return: Nothing
  */
-size_t pall(const line_t *h)
+void pall(stack_t **stack, unsigned int line_number)
 {
-	size_t i = 0;
+	stack_t *tmp = *stack;
 
-	while (h)
+	(void) stack;
+	(void) line_number;
+	if (*stack == NULL)
+		return;
+	while (tmp)
 	{
-		printf("%s", h->line);
-		h = h->next;
-		i++;
+		printf("%d", tmp->n);
+		tmp = tmp->next;
 	}
-	return (i);
 }

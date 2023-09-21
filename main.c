@@ -1,5 +1,5 @@
 #include "monty.h"
-
+line_t *head = NULL;
 /**
  * main - main function of the monty interpriter
  * @argc: number of arguments
@@ -8,9 +8,19 @@
  */
 int main(int argc, char **argv)
 {
-	check_nbr_args(argc);
+	
+	int j = 0;
+	line_t *ptr;
+
+	(void) argc;
+	ptr = head;
 	check_open_file(argv);
-	pall(head);
-	free_stack2(&head);
+	while (ptr || ptr->next)
+	{
+		printf("tokennnnnnnn = %s\n", ptr->tokens[j]);
+		ptr = ptr->next;
+		j++;
+	}
+
 	return (0);
 }
