@@ -16,7 +16,8 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	tmp = malloc(sizeof(stack_t));
+	tmp = *stack;
+	stack = malloc(sizeof(stack_t));
 	if (tmp == NULL)
 	{
 		free_stack2(&head);
@@ -36,5 +37,4 @@ void push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = tmp;
 		*stack = tmp;
 	}
-	head = head->next;
 }
