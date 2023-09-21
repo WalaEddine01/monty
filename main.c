@@ -8,12 +8,18 @@ line_t *head = NULL;
  */
 int main(int argc, char **argv)
 {
-	
 	line_t *ptr;
-
-	(void) argc;
+	(void)argc;
 	check_open_file(argv);
 	ptr = head;
+	while (head)
+	{
+		printf("%d \n", (int)atoi(head->tokens[1]));
+		head = head->next;
+	}
+	head = ptr;
+	
 
 	return (0);
+
 }

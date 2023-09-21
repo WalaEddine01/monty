@@ -17,24 +17,19 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	tmp = *stack;
-	stack = malloc(sizeof(stack_t));
-	if (tmp == NULL)
+	*stack = malloc(sizeof(stack_t));
+	if (*stack == NULL)
 	{
 		free_stack2(&head);
 		free_stack(stack);
 		malloc_f();
 	}
-	tmp->n = (int) atoi(head->tokens[1]);
-	tmp->next = NULL;
-	tmp->prev = NULL;
-	if (*stack == NULL)
+	(*stack)->n = (int)atoi(head->tokens[1]);
+	(*stack)->next = NULL;
+	(*stack)->prev = NULL;
+	if (tmp != NULL)
 	{
-		*stack = tmp;
-	}
-	else
-	{
-		tmp->next = *stack;
-		(*stack)->prev = tmp;
-		*stack = tmp;
+		(*stack)->next = tmp;
+		tmp->prev = *stack;
 	}
 }
