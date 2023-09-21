@@ -8,18 +8,25 @@ line_t *head = NULL;
  */
 int main(int argc, char **argv)
 {
-	
-	int j = 0;
 	line_t *ptr;
+	int j = 0;
 
 	(void) argc;
-	ptr = head;
 	check_open_file(argv);
-	while (ptr || ptr->next)
+	ptr = head;
+	while (ptr)
 	{
-		printf("tokennnnnnnn = %s\n", ptr->tokens[j]);
+		j = 0;
+		printf("line = %s", ptr->line);
+		printf("line_nbr = %d\n", ptr->line_nbr);
+		while (j < 2)
+		{
+			printf("tokennnnnnnn = %s\n", ptr->tokens[j]);
+			j++;
+		}
+		printf("token = %d\n", ptr->n_token);
 		ptr = ptr->next;
-		j++;
+		printf("----\n");
 	}
 
 	return (0);
