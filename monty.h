@@ -75,5 +75,7 @@ int is_space(const char *str);
 int is_nbr(const char *str);
 instruction_t *get_inst(void);
 void invalid_instruction(void);
+void open_f(char **argv);
+void process_line(char *buffer, unsigned int i);
 
 #endif /* MONTY_H */

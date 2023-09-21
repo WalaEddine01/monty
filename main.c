@@ -19,7 +19,6 @@ int main(int argc, char **argv)
 		if (op != NULL)
 		{
 			op->f(&stack, head->line_nbr);
-			printf("op = %s \n", op->opcode);
 		}
 		else
 			invalid_instruction();
