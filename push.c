@@ -21,6 +21,7 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		free_stack2(&head);
 		free_stack(stack);
+		free(new_node);
 		malloc_f();
 	}
 	new_node->n = atoi(head->tokens[1]);
