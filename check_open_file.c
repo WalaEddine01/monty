@@ -11,11 +11,11 @@ void check_open_file(char **argv)
 	size_t n = 0;
 	line_t *ptr = NULL, *tmp;
 	unsigned int i = 0, j = 0;
-	
+
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);		
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&buffer, &n, fd) != -1)
@@ -37,7 +37,7 @@ void check_open_file(char **argv)
 		{
 			ptr->tokens[j] = malloc(sizeof(char) * (strlen(token) + 1));
 			if (ptr->tokens[j] == NULL)
-			malloc_f();
+				malloc_f();
 			strcpy(ptr->tokens[j], token);
 			ptr->n_token++;
 			token = strtok(NULL, dilim);

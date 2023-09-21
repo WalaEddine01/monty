@@ -22,5 +22,5 @@ int is_nbr(const char *str)
 		}
 		str++;
 	}
-    return (1);
+	return (1);
 }

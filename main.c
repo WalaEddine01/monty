@@ -8,18 +8,24 @@ line_t *head = NULL;
  */
 int main(int argc, char **argv)
 {
-	line_t *ptr;
-	(void)argc;
+	stack_t *stack = NULL;
+	instruction_t *op;
+
+	check_nbr_args(argc);
 	check_open_file(argv);
-	ptr = head;
 	while (head)
 	{
-		printf("%d \n", (int)atoi(head->tokens[1]));
+		op = get_inst();
+		if (op != NULL)
+		{
+			op->f(&stack, head->line_nbr);
+			printf("op = %s \n", op->opcode);
+		}
+		else
+			invalid_instruction();
 		head = head->next;
 	}
-	head = ptr;
-	
-
+	free_stack(&stack);
+	free_stack2(&head);
 	return (0);
-
 }

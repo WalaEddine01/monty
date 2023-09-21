@@ -42,8 +42,8 @@ void free_stack2(line_t **head)
 		ptr = *head;
 		*head = (*head)->next;
 		free(ptr->line);
-		for(i = 0; i < ptr->n_token; i++)
-	    		free(ptr->tokens[i]);
+		for (i = 0; i < ptr->n_token; i++)
+			free(ptr->tokens[i]);
 		free(ptr->tokens);
 		free(ptr);
 	}

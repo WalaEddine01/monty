@@ -43,11 +43,14 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- * struct lines_s - lines
+ * struct line_s - lines
  * @line: line
  * @next: pointer to the next node
+ * @line_nbr: line number
+ * @tokens: all tokens
+ * @n_token: number of tokens
  *
- * Description: lines
+ * Description: struct custum to store all info
  */
 typedef struct line_s
 {
@@ -70,5 +73,7 @@ void free_stack2(line_t **head);
 void malloc_f(void);
 int is_space(const char *str);
 int is_nbr(const char *str);
+instruction_t *get_inst(void);
+void invalid_instruction(void);
 
 #endif /* MONTY_H */

@@ -7,29 +7,29 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = NULL;
+	stack_t *new_node = NULL;
 
 	if (head->n_token <= 1 || !(is_nbr(head->tokens[1])))
 	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack2(&head);
 		free_stack(stack);
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	tmp = *stack;
-	*stack = malloc(sizeof(stack_t));
-	if (*stack == NULL)
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
 	{
 		free_stack2(&head);
 		free_stack(stack);
 		malloc_f();
 	}
-	(*stack)->n = (int)atoi(head->tokens[1]);
-	(*stack)->next = NULL;
-	(*stack)->prev = NULL;
-	if (tmp != NULL)
+	new_node->n = atoi(head->tokens[1]);
+	new_node->next = *stack;
+	new_node->prev = NULL;
+
+	if (*stack != NULL)
 	{
-		(*stack)->next = tmp;
-		tmp->prev = *stack;
+		(*stack)->prev = new_node;
 	}
+	*stack = new_node;
 }
