@@ -10,8 +10,8 @@ int main(int argc, char **argv)
 {
 	stack_t *stack = NULL;
 	instruction_t *op;
-	line_t *ptr;
 	int i = 0;
+	line_t *ptr;
 
 	check_nbr_args(argc);
 	check_open_file(argv);
@@ -24,13 +24,16 @@ int main(int argc, char **argv)
 			op->f(&stack, head->line_nbr);
 		}
 		else
+		{
 			invalid_instruction();
+		}
 		head = head->next;
 		i++;
 	}
 	if (i != 0)
 		free_stack3(op);
 	head = ptr;
+	ptr = NULL;
 	free_stack(&stack);
 	free_stack2(&head);
 	return (0);

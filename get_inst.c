@@ -10,11 +10,12 @@ instruction_t *get_inst(void)
 		{"push", &push}, {"pop", &pop},
 		{"pall", &pall}, {NULL, NULL}
 	};
-	instruction_t *inst;
+	instruction_t *inst = NULL;
 
 	if (head->n_token == 0)
 	{
 		free_stack2(&head);
+		free_stack3(inst);
 		return (NULL);
 	}
 	for (i = 0; instructions[i].opcode != NULL; i++)
@@ -30,11 +31,6 @@ instruction_t *get_inst(void)
 			inst->opcode = instructions[i].opcode;
 			inst->f = instructions[i].f;
 			return (inst);
-		}
-		else
-		{
-			free_stack2(&head);
-			return (NULL);
 		}
 	}
 	return (NULL);

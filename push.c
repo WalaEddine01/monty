@@ -7,7 +7,7 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_node = NULL;
+	stack_t *new_node;
 
 	if (head->n_token <= 1 || !(is_nbr(head->tokens[1])))
 	{
@@ -24,7 +24,7 @@ void push(stack_t **stack, unsigned int line_number)
 		free(new_node);
 		malloc_f();
 	}
-	new_node->n = atoi(head->tokens[1]);
+	new_node->n = (int)atoi(head->tokens[1]);
 	new_node->next = *stack;
 	new_node->prev = NULL;
 
