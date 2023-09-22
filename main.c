@@ -33,7 +33,6 @@ int main(int argc, char **argv)
 	if (i != 0)
 		free_stack3(op);
 	head = ptr;
-	ptr = NULL;
 	free_stack(&stack);
 	free_stack2(&head);
 	return (0);

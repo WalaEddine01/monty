@@ -47,4 +47,5 @@ void process_line(char *buffer, unsigned int i)
 			tmp = tmp->next;
 		tmp->next = ptr;
 	}
+	free(linecpy);
 }

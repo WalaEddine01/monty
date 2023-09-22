@@ -82,5 +82,6 @@ void tokenize_line(line_t *ptr, char *linecpy, char *dilim);
 void create_and_append_node(line_t *ptr, unsigned int i);
 void check_open_file2(char **argv);
 void free_stack3(instruction_t *head);
+void process_line2(char *buffer, unsigned int i);
 
 #endif /* MONTY_H */
