@@ -14,11 +14,17 @@ void check_open_file(char **argv)
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
 		open_f(argv);
+	printf("aaa\n");
 	while (getline(&buffer, &n, fd) != -1)
 	{
+		printf("----\n");
 		process_line(buffer, i);
 		i++;
 	}
+	printf("-----\n");
+	if (getline(&buffer, &n, fd) == -1 && i == 0)
+		printf("s\n");
 	fclose(fd);
 	free(buffer);
+	printf("----------------\n");
 }

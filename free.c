@@ -50,3 +50,14 @@ void free_stack2(line_t **head)
 	free((*head)->line);
 	free(*head);
 }
+/**
+ * free_stack3 - frees the memory
+ * @head: pointer to the node
+ * Return: Nothing
+ */
+void free_stack3(instruction_t *head)
+{
+	if (head == NULL)
+		return;
+	free(head);
+}

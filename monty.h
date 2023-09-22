@@ -77,5 +77,10 @@ instruction_t *get_inst(void);
 void invalid_instruction(void);
 void open_f(char **argv);
 void process_line(char *buffer, unsigned int i);
+void initialize_line(line_t *ptr);
+void tokenize_line(line_t *ptr, char *linecpy, char *dilim);
+void create_and_append_node(line_t *ptr, unsigned int i);
+void check_open_file2(char **argv);
+void free_stack3(instruction_t *head);
 
 #endif /* MONTY_H */

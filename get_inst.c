@@ -24,14 +24,18 @@ instruction_t *get_inst(void)
 			inst = malloc(sizeof(instruction_t));
 			if (inst == NULL)
 			{
-				free(inst);
+				free_stack3(inst);
 				malloc_f();
 			}
 			inst->opcode = instructions[i].opcode;
 			inst->f = instructions[i].f;
 			return (inst);
 		}
+		else
+		{
+			free_stack2(&head);
+			return (NULL);
+		}
 	}
-	free_stack2(&head);
 	return (NULL);
 }

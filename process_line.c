@@ -32,6 +32,7 @@ void process_line(char *buffer, unsigned int i)
 		strcpy(ptr->tokens[j], token);
 		ptr->n_token++;
 		token = strtok(NULL, dilim);
+		printf("%s \n", ptr->tokens[j]);
 		j++;
 	}
 	ptr->line_nbr = i;
@@ -45,6 +46,4 @@ void process_line(char *buffer, unsigned int i)
 			tmp = tmp->next;
 		tmp->next = ptr;
 	}
-	free(token);
-	free(linecpy);
 }
