@@ -25,15 +25,20 @@ int main(int argc, char **argv)
 		}
 		else
 		{
-			invalid_instruction();
+			if (head->next)
+			{
+				head = head->next;
+				continue;
+			}
+			else
+				break;
 		}
 		head = head->next;
 		i++;
 	}
 	if (i != 0)
 		free_stack3(op);
-	head = ptr;
 	free_stack(&stack);
-	free_stack2(&head);
+	free_stack2(&ptr);
 	return (0);
 }

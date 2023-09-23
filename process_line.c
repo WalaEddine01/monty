@@ -26,14 +26,12 @@ void process_line(char *buffer, unsigned int i)
 	strcpy(linecpy, ptr->line);
 	token = strtok(linecpy, dilim);
 	ptr->tokens = malloc(sizeof(char *) * 2);
-	while (token != NULL && j < 2)
+	while (token != NULL)
 	{
 		ptr->tokens[j] = malloc(sizeof(char) * (strlen(token) + 1));
 		strcpy(ptr->tokens[j], token);
 		ptr->n_token++;
 		token = strtok(NULL, dilim);
-		if (!token)
-			break;
 		j++;
 	}
 	ptr->line_nbr = i;

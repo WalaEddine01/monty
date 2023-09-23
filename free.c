@@ -10,19 +10,14 @@ void free_stack(stack_t **head)
 
 	if (head == NULL)
 		return;
-	if (head == NULL)
-		free(*head);
-	else
+	ptr = *head;
+	while (*head && (*head)->next)
 	{
 		ptr = *head;
-		while (*head && (*head)->next)
-		{
-			ptr = *head;
-			*head = (*head)->next;
-			free(ptr);
-		}
-		free(*head);
+		*head = (*head)->next;
+		free(ptr);
 	}
+	free(*head);
 }
 /**
  * free_stack2 - frees the list

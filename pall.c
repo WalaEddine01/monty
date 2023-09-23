@@ -10,6 +10,8 @@ void pall(stack_t **stack, unsigned int line_number)
 	stack_t *tmp = *stack;
 
 	(void)line_number;
+	if (!tmp || !head)
+		return;
 	while (tmp != NULL)
 	{
 		fprintf(stdout, "%d\n", tmp->n);

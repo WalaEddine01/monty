@@ -8,7 +8,8 @@ instruction_t *get_inst(void)
 	int i = 0;
 	instruction_t instructions[] = {
 		{"push", &push}, {"pop", &pop},
-		{"pall", &pall}, {NULL, NULL}
+		{"pall", &pall}, {"pint", &pint}, {"swap", &swap},
+		{"add", &add}, {NULL, NULL}
 	};
 	instruction_t *inst = NULL;
 
@@ -33,5 +34,6 @@ instruction_t *get_inst(void)
 			return (inst);
 		}
 	}
+	invalid_instruction();
 	return (NULL);
 }

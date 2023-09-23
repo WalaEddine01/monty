@@ -83,5 +83,8 @@ void create_and_append_node(line_t *ptr, unsigned int i);
 void check_open_file2(char **argv);
 void free_stack3(instruction_t *head);
 void process_line2(char *buffer, unsigned int i);
+void pint(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
