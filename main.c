@@ -40,7 +40,6 @@ int main(int argc, char **argv)
 	if (i != 0)
 		free_stack3(op);
 	free_stack(&stack);
-	free_stack2(&ptr);
 	free_stack2(&head);
 	return (0);
 }

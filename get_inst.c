@@ -9,7 +9,7 @@ instruction_t *get_inst(void)
 	instruction_t instructions[] = {
 		{"push", &push}, {"pop", &pop},
 		{"pall", &pall}, {"pint", &pint}, {"swap", &swap},
-		{"add", &add}, {NULL, NULL}
+		{"add", &add}, {"nop", &nop}, {NULL, NULL}
 	};
 	instruction_t *inst = NULL;
 
