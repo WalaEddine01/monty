@@ -15,8 +15,8 @@ instruction_t *get_inst(void)
 
 	if (head->n_token == 0)
 	{
-		free_stack2(&head);
 		free_stack3(inst);
+		invalid_instruction();
 		return (NULL);
 	}
 	for (i = 0; instructions[i].opcode != NULL; i++)
